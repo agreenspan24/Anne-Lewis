@@ -10,13 +10,14 @@
                 .then(function(results){
                     var innerHTML = '';
                     results.forEach(function(result) {
-                        innerHTML += 
-                    }
+                        innerHTML += '<p>' + tweet + '</p>';
+                    };
+                    $("#tweets").html(innerHTML);
                 });
         }
     </script>
 </head>
-<body>
+<body onload="init()">
     <div id="tweets"></div>
 </body>
 </html>
