@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Teacher2Teacher</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        function init() {
+            $http.get("https://vast-atoll-36697.herokuapp.com/teacher2teacher")
+                .then(function(results){
+                    var innerHTML = '';
+                    results.forEach(function(result) {
+                        innerHTML += 
+                    }
+                });
+        }
+    </script>
+</head>
+<body>
+    <div id="tweets"></div>
+</body>
+</html>
