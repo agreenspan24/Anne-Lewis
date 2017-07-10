@@ -24,7 +24,6 @@ var error = function (err, response, body) {
 var success = function (data) {
     var parsedData = JSON.parse(data);
     parsedData.forEach(function(element) {
-        //console.log(element);
         AnneLewis.collection('statuses').insertOne(element);
     });
 };
@@ -33,12 +32,12 @@ var twitter = new Twitter({
     "consumerSecret": "a48PJ04oiFPhmVPtxOwGfIIRxoLt15oP9EFH8JHk215YYXuD1z"
 });
 
-twitter.getUserTimeline({screen_name: 'teacher2teacher', count: '10'}, error, success);
+twitter.getUserTimeline({screen_name: 'teacher2teacher', count: '50'}, error, success);
 
 app.get('/teacher2teacher', function (request, response) {
     response.set('Content-Type', 'application/json');
 
-    var statuses = AnneLewis.collection('statuses').find().toArray(function (error, data) {
+    AnneLewis.collection('statuses').find().toArray(function (error, data) {
         response.send(data);
     });
 
