@@ -6,14 +6,13 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script>
         function init() {
-            $http.get("https://vast-atoll-36697.herokuapp.com/teacher2teacher")
-                .then(function(results){
-                    var innerHTML = '';
-                    results.forEach(function(result) {
-                        innerHTML += '<p>' + tweet + '</p>';
-                    };
-                    $("#tweets").html(innerHTML);
-                });
+           $.get('http://localhost:3000/teacher2teacher', function(data){
+               var html
+               data.forEach(function(item) {
+                   html += '<p>' + item.user.name + ': ' + item.text +'</p>';
+               });
+               $("#tweets").html(html);
+           });
         }
     </script>
 </head>
